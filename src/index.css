@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-cover bg-center min-h-screen;
+  background-image: url('/Users/ship10/Documents/Coding Work/projects/Jamming/Jammming out/src/assets/background.jpg');
+  background-repeat: no-repeat;
+}
+
+/* ::placeholder {
+  @apply text-white;
+} */
