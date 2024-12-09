@@ -22,7 +22,7 @@ function Track(track) {
       <div className="Track-information
                       text-white flex flex-col">
         <h3>{track.name}</h3>
-        <p>{track.artistname} | track.albumname</p>
+        <p>{track.artist} | track.album</p>
       </div>
       {renderAction()}
     </div>

@@ -2,41 +2,40 @@ import { useState, useEffect} from 'react'
 import Searchbar from './components/SearchBar.jsx'
 import Results from './components/Results.jsx'
 import Playlist from './components/Playlist.jsx'
-import Spotify from './util/Spotify/Spotify.js'
+import spotify from './util/Spotify/Spotify.js'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  const [searchResults, setSearchResults] = useState(["track1, track2, track3"])
-  const [playlistName, setPlaylistName] = useState("New Playlist")
-  const [playlistTracks, setPlaylistTracks] = useState(["track1", "track2", "track3"])
+  const [searchResults, setSearchResults] = useState([])
+  const [playlistName, setPlaylistName] = useState("")
+  const [playlistTracks, setPlaylistTracks] = useState([])
 
   const addTrack = (track) => {
-    if (!playlistTracks.find(savedTrack => savedTrack.id === track.id)){
+    if (!playlistTracks.find(savedTrack => savedTrack.id === track.id)){ {/*if the track is not in the playlist return true*/}
       setPlaylistTracks([...playlistTracks, track])
     }
   }
 
   const removeTrack = (track) => {
-    setPlaylistTracks(playlistTracks.filter(savedTrack => savedTrack !== track))
+    setPlaylistTracks(playlistTracks.filter(savedTrack => savedTrack !== track)) /*returns a new array without the savedTrack*/
   }
 
   const updatePlaylistName = (name) => {
     setPlaylistName(name)
   }
 
-  let isRemoval = true
+  let isRemoval = true /*Defined here but not interactive this way! */
 
-  const savePlaylist = () => {
+  const savePlaylist =  () => {
     const trackURIs = playlistTracks.map(track => track.uri);
-    Spotify.savePlaylist(PlaylistName, trackURIs).then(() => {
+    spotify.savePlaylist(PlaylistName, trackURIs).then(() => {
       setPlaylistName('New Playlist');
-      setPlaylistTracks([]);
+      setPlaylistTracks([]); /*These last two opearations are for cleanup */
     })
   }
   
   const search = (term) => {
-    Spotify.search(term).then(results => {
+    spotify.search(term).then(results => {
       setSearchResults(results)
     })
   }
@@ -47,7 +46,7 @@ function App() {
       <Results searchResults={searchResults} onAdd={addTrack} isRemoval={isRemoval}/>
       <Playlist playlistName={playlistName} playlistTracks={playlistTracks} 
                 isRemoval={isRemoval} onRemove={removeTrack} onNameChange={updatePlaylistName}
-                onSave={savePlayList}/>
+                onSave={savePlaylist}/>
     </div>
   )
 }

@@ -11,7 +11,7 @@ export default function Playlist(props) {
                     flex flex-col">
       <input placeholder="Name your playlist" className="playlist-name placeholder-gray-400
                         text-white bg-purple-500 bg-opacity-80 text-left"
-                        onChange={handleChange}></input>
+                        onChange={handleNameChange}></input>
       <Tracklist playlistTracks={props.playlistTracks} onRemove={props.onRemove} isRemoval={true}/>
       <button className="playlist-button rounded-xl self-center bg-blue-800
                         text-white px-4 py-2 opacity-1

@@ -1,11 +1,12 @@
 import React from 'react';
+import {useState} from 'react';
 
-export default function Searchbar(onSearch) {
+export default function Searchbar({onSearch}) {
 
   const [term, setTerm] = useState('')
 
-  const passTerm = (term) => {
-    onSearch(term)
+  const passTerm = () => {
+    onSearch(term);
   }
   const handleTermChange = (e) => {
     setTerm(e.target.value)
