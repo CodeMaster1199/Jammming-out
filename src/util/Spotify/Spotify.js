@@ -101,7 +101,7 @@ const spotify = {
       })
       if (response.ok) {
         const jsonResponse = await response.json();
-        return jsonResponse;
+        // return jsonResponse;
       } else {
         throw new Error('Request failed!');
       }
