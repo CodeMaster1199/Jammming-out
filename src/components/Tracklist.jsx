@@ -8,7 +8,7 @@ export default function Tracklist({tracks=[], isRemoval, onAdd, onRemoval }) {
   return (
     <div className="Tracklist w-full">
       {tracks.map(track => (
-        <Track key={track.id} track={track} onAdd={onAdd} isRemoval={isRemoval} onRemoval={props.onRemoval} />
+        <Track key={track.id} track={track} onAdd={onAdd} isRemoval={isRemoval} onRemoval={onRemoval} />
       ))}
     </div>
   )

@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="flex flex-col">
-      <Searchbar onsearch={search}/>
+      <Searchbar onSearch={search}/>
       <Results searchResults={searchResults} onAdd={addTrack} isRemoval={isRemoval}/>
       <Playlist playlistName={playlistName} playlistTracks={playlistTracks} 
                 isRemoval={isRemoval} onRemove={removeTrack} onNameChange={updatePlaylistName}

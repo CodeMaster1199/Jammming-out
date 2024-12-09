@@ -1,4 +1,4 @@
-function Track(track) {
+function Track(track, key, onAdd, isRemoval, onRemove) {
 
   const renderAction = () => {
     if (isRemoval) {
