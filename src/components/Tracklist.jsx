@@ -2,10 +2,9 @@
 import React from 'react';
 import Track from './Track.jsx'
 
-export default function Tracklist({tracks=[], isRemoval, onAdd, onRemove, playlistTracks}) {
-  console.log("playlist tracks in tracklist", playlistTracks)
+export default function Tracklist({tracks=[], isRemoval, onAdd, onRemove}) {
   console.log(tracks) //works
-
+  console.log("in tracklist")
 
   return (
     <div className="Tracklist w-full">
@@ -13,7 +12,6 @@ export default function Tracklist({tracks=[], isRemoval, onAdd, onRemove, playli
         <Track 
         key={track.id}
         track={track}
-        playlistTracks={playlistTracks}
         onAdd={onAdd} 
         isRemoval={isRemoval} 
         onRemove={onRemove} 

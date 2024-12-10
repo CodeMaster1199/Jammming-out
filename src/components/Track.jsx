@@ -1,6 +1,6 @@
-function Track({track, onAdd, isRemoval, onRemove, trackNumber, playlistTracks}) {
+function Track({track, onAdd, isRemoval, onRemove, trackNumber}) {
 // console.log(track)
-console.log("playlist tracks in track", playlistTracks)
+
   const renderAction = () => {
     if (isRemoval) {
       return <button className="Track-action text-white" onClick={passTrackToRemove}>-</button>
