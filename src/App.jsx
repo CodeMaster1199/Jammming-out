@@ -37,6 +37,7 @@ function App() {
   const search = (term) => {
     spotify.search(term).then(results => {
       setSearchResults(results)
+      // console.log(results)
     })
   }
 

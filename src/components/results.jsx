@@ -8,7 +8,6 @@ export default function Results({searchResults, isRemoval=false, onAdd}) {
       <hr className="bg-white border-dashed"></hr>
       <div className="individual-result flex flex-row border-b-2 justify-between border-white">
       <Tracklist tracks={searchResults} isRemoval={false} onAdd={onAdd}/>
-        {/* <button className="add-button self-end text-white active:text-gray-500">+</button> */}
       </div>
     </div>
   )

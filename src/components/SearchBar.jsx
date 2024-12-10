@@ -7,9 +7,11 @@ export default function Searchbar({onSearch}) {
 
   const passTerm = () => {
     onSearch(term);
+    // console.log(term);
   }
   const handleTermChange = (e) => {
     setTerm(e.target.value)
+    // console.log(term);
   }
 
   return (
