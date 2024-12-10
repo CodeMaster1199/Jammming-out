@@ -10,25 +10,37 @@ function App() {
   const [playlistName, setPlaylistName] = useState("")
   const [playlistTracks, setPlaylistTracks] = useState([])
 
-  const addTrack = (track) => {
-    if (!playlistTracks.find(savedTrack => savedTrack.id === track.id)){ {/*if the track is not in the playlist return true*/}
-      setPlaylistTracks([...playlistTracks, track])
-    }
+  const addTrack = async (track) => {
+    console.log("Addtrack called", track)
+    await setPlaylistTracks((prevTracks) => {
+      console.log("running setPlaylistTracks", track)
+      if (prevTracks.find(savedTrack => savedTrack.id === track.id)) {
+        console.log("if chosen")
+        return prevTracks
+      } else {
+        console.log("else chosen")
+        return [...prevTracks, track]
+      }
+    })
+    console.log("playlist Tracks:", playlistTracks)
   }
+  
 
   const removeTrack = (track) => {
     setPlaylistTracks(playlistTracks.filter(savedTrack => savedTrack !== track)) /*returns a new array without the savedTrack*/
   }
 
   const updatePlaylistName = (name) => {
+    console.log(playlistName)
     setPlaylistName(name)
+    
   }
 
   let isRemoval = true /*Defined here but not interactive this way! */
 
-  const savePlaylist =  () => {
+  const savePlaylist = async () => {
     const trackURIs = playlistTracks.map(track => track.uri);
-    spotify.savePlaylist(PlaylistName, trackURIs).then(() => {
+    await spotify.savePlaylist(PlaylistName, trackURIs).then(() => {
       setPlaylistName('New Playlist');
       setPlaylistTracks([]); /*These last two opearations are for cleanup */
     })
@@ -40,6 +52,10 @@ function App() {
       // console.log(results)
     })
   }
+
+  useEffect(() => {
+    console.log("playlistTracks updated:", playlistTracks);
+  }, [playlistTracks]);
 
   return (
     <div className="flex flex-col h-screen">

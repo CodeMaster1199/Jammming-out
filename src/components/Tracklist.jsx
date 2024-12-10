@@ -2,8 +2,8 @@
 import React from 'react';
 import Track from './Track.jsx'
 
-export default function Tracklist({tracks=[], isRemoval, onAdd, onRemoval }) {
-
+export default function Tracklist({tracks=[], isRemoval, onAdd, onRemove, playlistTracks}) {
+  console.log("playlist tracks in tracklist", playlistTracks)
   console.log(tracks) //works
 
 
@@ -11,14 +11,16 @@ export default function Tracklist({tracks=[], isRemoval, onAdd, onRemoval }) {
     <div className="Tracklist w-full">
       {tracks.map((track, index) => (
         <Track 
-        key={track.id} 
-        track={track} 
+        key={track.id}
+        track={track}
+        playlistTracks={playlistTracks}
         onAdd={onAdd} 
         isRemoval={isRemoval} 
-        onRemoval={onRemoval} 
+        onRemove={onRemove} 
         trackNumber={index +1} 
         />
       ))}
     </div>
   )
 }
+
