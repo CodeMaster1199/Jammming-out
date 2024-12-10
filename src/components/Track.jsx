@@ -1,4 +1,4 @@
-function Track({track, key, onAdd, isRemoval, onRemove}) {
+function Track({track, onAdd, isRemoval, onRemove, trackNumber}) {
 // console.log(track)
   const renderAction = () => {
     if (isRemoval) {
@@ -21,7 +21,7 @@ function Track({track, key, onAdd, isRemoval, onRemove}) {
     <div className="Track flex justify-between mb-4 border-b" >
       <div className="Track-information
                       text-white flex flex-col">
-        <h3>{track.name}</h3>
+        <h3> {trackNumber} {track.name}</h3>
         <p>{track.artist} | {track.album}</p>
       </div>
       {renderAction()}

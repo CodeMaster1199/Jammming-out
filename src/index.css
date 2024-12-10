@@ -8,6 +8,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.h-fraction {
+  /* height: 765px; */
+  height: 60vh;
+}
 /* ::placeholder {
   @apply text-white;
 } */
