@@ -10,6 +10,10 @@ function App() {
   const [playlistName, setPlaylistName] = useState("")
   const [playlistTracks, setPlaylistTracks] = useState([])
 
+  useEffect(() => {
+    spotify.getAccessToken();
+  }, [])
+
   const addTrack = async (track) => {
     console.log("Addtrack called", track)
     await setPlaylistTracks((prevTracks) => {
@@ -40,7 +44,7 @@ function App() {
 
   const savePlaylist = async () => {
     const trackURIs = playlistTracks.map(track => track.uri);
-    await spotify.savePlaylist(PlaylistName, trackURIs).then(() => {
+    await spotify.savePlaylist(playlistName, trackURIs).then(() => {
       setPlaylistName('New Playlist');
       setPlaylistTracks([]); /*These last two opearations are for cleanup */
     })
@@ -56,6 +60,7 @@ function App() {
   useEffect(() => {
     console.log("playlistTracks updated:", playlistTracks);
   }, [playlistTracks]);
+
 
   return (
     <div className="flex flex-col h-screen">

@@ -3,10 +3,10 @@ function Track({track, onAdd, isRemoval, onRemove, trackNumber}) {
 
   const renderAction = () => {
     if (isRemoval) {
-      return <button className="Track-action text-white" onClick={passTrackToRemove}>-</button>
+      return <button className="Track-action text-white mr-5 p-5" onClick={passTrackToRemove}>-</button>
     }
     else {
-      return <button className="Track-action text-white" onClick={passTrack}>+</button>
+      return <button className="Track-action text-white mr-5 p-5" onClick={passTrack}>+</button>
     }
   }
 
