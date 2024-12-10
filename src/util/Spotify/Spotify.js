@@ -31,7 +31,7 @@ const spotify = {
   search: async (term) => {
     const accessToken = spotify.getAccessToken();
     try {
-      const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+      const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}&limit=30`, {
         headers: {
           Authorization: `Bearer ${accessToken}` 
         }
